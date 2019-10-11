@@ -1,23 +1,16 @@
-# frozen_string_literal: true
+Rails:
+  Enabled: true
 AllCops:
   Exclude:
     - 'db/**/*'
-    - 'config/**/*'
+    - 'spec/*'
     - 'spec/**/*'
+    - 'config/**/*'
     - 'bin/*'
     - 'app/channels/**/*'
-Style/ClassAndModuleChildren:
-  EnforcedStyle: compact
-Style/Encoding:
+Style/FrozenStringLiteralComment:
   Enabled: false
 Metrics/LineLength:
   Max: 120
-Metrics/ClassLength:
-  Max: 125
-Metrics/MethodLength:
-  Max: 30
-Metrics/BlockLength:
-  ExcludedMethods: ['describe']
-  Max: 30
-Documentation:
-Enabled: false
+Style/Documentation:
+  Enabled: false

@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+gem 'acts_as_list'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
@@ -21,6 +22,7 @@ gem 'redis', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'json-schema'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', '~> 0.63.1'
 end
@@ -32,10 +34,11 @@ group :development do
 end
 
 group :test do
-  gem 'dox', '~> 1.0.0', require: false
+  gem 'dox', '~> 1.1.0', require: false
   gem 'factory_bot_rails'
   gem 'json-schema-rspec'
   gem 'json_matchers', '~> 0.11.0'
+  gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false
 end

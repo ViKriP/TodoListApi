@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'application#docs'
+
+  namespace :api do
+    namespace :v1 do
+      post :registration, to: 'registrations#create'
+      post :sign_in, to: 'login#create'
+      delete :sign_out, to: 'login#destroy'
+    end
+  end
 end
