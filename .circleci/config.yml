@@ -33,18 +33,10 @@ jobs:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-      - run:
-          name: install npm dependencies
-          command: |
-            npm ci
       - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-      - save_cache:
-          paths:
-            - ./node_modules
-          key: v1-dependencies-{{ checksum "package-lock.json" }}
 
       # Database setup
       - run:
