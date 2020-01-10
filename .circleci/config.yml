@@ -16,6 +16,7 @@ jobs:
           POSTGRES_USER: adm
           POSTGRES_PASSWORD: qwerty123
           POSTGRES_DB: todolistapi_test
+      - image: redis
 
     working_directory: ~/repo
 
