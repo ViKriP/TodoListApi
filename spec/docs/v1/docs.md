@@ -20,7 +20,7 @@
     + Body
 
             {
-              "email": "keenan@haleyblanda.name",
+              "email": "antone@rohan.name",
               "password": "test_pswd"
             }
 
@@ -33,7 +33,7 @@
     + Body
 
             {
-              "csrf": "byJtzzjEQKWtS8YWGbzclt7prejb6qerT45irlQ+5MRIIXAMqYgBOaVTJoGN7YjYURow22u5/J3cE78NM+3o5Q=="
+              "csrf": "yA30qiKAfuc2NlCxYa2x1q2jZkjEz+3l9OJ4tix2dUOFjMRDFvP9jVh7A9g0kHrmaO66My0mK6L+ymvhD3M21Q=="
             }
 
 + Request when failed login user
@@ -105,6 +105,123 @@
               ]
             }
 
+# Group Projects
+
+
+## Projects [/projects]
+
+
+### Create a project [POST /api/v1/projects]
+
+
++ Request creates a new project
+**POST**&nbsp;&nbsp;`/api/v1/projects`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            project[name]=et
+
++ Response 201
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "data": {
+                "id": "772",
+                "type": "project",
+                "attributes": {
+                  "id": 772,
+                  "name": "et"
+                },
+                "relationships": {
+                  "user": {
+                    "data": {
+                      "id": "823",
+                      "type": "user"
+                    }
+                  }
+                }
+              }
+            }
+
+### Update a project [PUT /api/v1/projects/{id}]
+
++ Parameters
+    + id: `776` (number, required)
+
++ Request updates project
+**PUT**&nbsp;&nbsp;`/api/v1/projects/776`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/x-www-form-urlencoded
+
+    + Body
+
+            project[name]=vero
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "data": {
+                "id": "776",
+                "type": "project",
+                "attributes": {
+                  "id": 776,
+                  "name": "vero"
+                },
+                "relationships": {
+                  "user": {
+                    "data": {
+                      "id": "824",
+                      "type": "user"
+                    }
+                  }
+                }
+              }
+            }
+
+### Delete a project [DELETE /api/v1/projects/{id}]
+
++ Parameters
+    + id: `777` (number, required)
+
++ Request deletes project
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/777`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/x-www-form-urlencoded
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "deleted": true
+            }
+
 # Group Registrations
 
 
@@ -139,11 +256,11 @@
     + Body
 
             {
-              "csrf": "vGlnr5kIqvKysxo/5dg4soxBLDy95C0jjIGF2Bpsx+VcZdkOEqfAgI070MLua9bLivZmLBPnNKBcWJrCQeDrfQ==",
-              "access": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzA4MDU4ODQsInVzZXJfaWQiOjQ0NCwidWlkIjoiYzI5NDE0NWQtZmQ1MS00OTVhLWJkOTYtZjI5NDNjMjY5ZDllIiwiZXhwIjoxNTcwODA1ODg0fQ.LLPa_48A6tVBlHXInEoVfbR9q1KTSfPb_yzZiKVMydY",
-              "access_expires_at": "2019-10-11T17:58:04.000+03:00",
-              "refresh": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzA4MDU4ODQsInVpZCI6ImRkODU4OWM1LTBlY2UtNGYyNi04NTI0LWRhMzM4NWIwNzJiMyIsImV4cCI6MTU3MTQwNzA4NH0.s6ioDBsGNz4c7UMav2cjPIDsvI6XTAasDbQ6XUroMto",
-              "refresh_expires_at": "2019-10-18T16:58:04.000+03:00"
+              "csrf": "/C2EmrPK0TOFNnuH4M6Mr8dYOui3frEf3vQUbQpejfbJ71x6yl2eDdmp5tkgMWGzss8Hb5nmCPETkdJGRNHorg==",
+              "access": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Nzg4NzEyNzgsInVzZXJfaWQiOjgyNiwidWlkIjoiNzQxZDFhYmItNzRjOS00ZDIwLWI3M2QtYjNmOTc0NGE1MDQ0IiwiZXhwIjoxNTc4ODcxMjc4fQ.5Q7xhdguQ19ezHcse51ZcEN7J0C-Q9lyMTJ3AZ_i1Gc",
+              "access_expires_at": "2020-01-13T01:21:18.000+02:00",
+              "refresh": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Nzg4NzEyNzgsInVpZCI6ImY2Y2M5NzQ4LTJiNmEtNDMxNC1iZTU0LTk2ZDlkMmY3ZDBhOCIsImV4cCI6MTU3OTQ3MjQ3OH0.pwqK6VCrmrZarSKxoOYknhuZ9-KgI8BLUm4GT5msdfE",
+              "refresh_expires_at": "2020-01-20T00:21:18.000+02:00"
             }
 
 + Request invalid params

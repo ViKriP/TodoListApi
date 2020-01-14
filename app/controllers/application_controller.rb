@@ -3,8 +3,9 @@ class ApplicationController < ActionController::API
   rescue_from JWTSessions::Errors::Unauthorized, with: :not_authorized
   include Pundit
 
-  def docs
-    render file: 'public/docs/v1.html'
+  def current_user
+    header = request.headers['Authorization']
+    @current_user ||= User.find(JsonWebToken.decode(header)[:user_id])
   end
 
   private

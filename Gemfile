@@ -4,13 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 gem 'acts_as_list'
+gem 'aws-sdk-s3', require: false
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 gem 'faker', '~> 1.9', '>= 1.9.3'
 gem 'fast_jsonapi', '~> 1.5'
-gem 'fog'
-gem 'jbuilder', '~> 2.5'
+gem 'fog-aws'
 gem 'jwt_sessions', '~> 2.4', '>= 2.4.1'
 gem 'mini_magick', '~> 4.8'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -36,8 +36,10 @@ end
 group :test do
   gem 'dox', '~> 1.1.0', require: false
   gem 'factory_bot_rails'
+  gem 'ffaker'
   gem 'json-schema-rspec'
   gem 'json_matchers', '~> 0.11.0'
+  gem 'pundit-matchers'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers'
   gem 'simplecov', require: false

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationController, type: :controller do
+RSpec.describe StaticPageDocsController, type: :controller do
   describe '#docs' do
     before { get :docs }
 
