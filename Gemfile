@@ -34,6 +34,7 @@ group :development do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'dox', '~> 1.1.0', require: false
   gem 'factory_bot_rails'
   gem 'ffaker'
