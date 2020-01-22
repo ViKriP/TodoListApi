@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       delete :sign_out, to: 'login#destroy'
 
       resources :projects, only: [:create, :update, :destroy]
+      resources :tasks, only: [:create, :update, :destroy]
     end
   end
 end

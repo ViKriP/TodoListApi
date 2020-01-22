@@ -11,9 +11,9 @@ RSpec.describe 'Projects', type: :request do
     context 'when success' do
       let(:project) { create(:project, user: user) }
       let(:params) { { project: attributes_for(:project) } }
-    
+
       it 'creates a new project', :dox do
-        expect { post api_v1_projects_path, headers: headers, params: params }.to change(Project, :count).by(1)
+        expect { post api_v1_projects_path, headers: headers, params: params, as: :json }.to change(Project, :count).by(1)
         expect(response).to have_http_status :created
         expect(response).to match_response_schema('project')
       end
@@ -40,7 +40,7 @@ RSpec.describe 'Projects', type: :request do
       let(:params) { { project: attributes_for(:project) } }
 
       it 'updates project', :dox do
-        put api_v1_project_path(id: project.id), headers: headers, params: params
+        put api_v1_project_path(id: project.id), headers: headers, params: params, as: :json
 
         expect(response).to have_http_status :ok
         expect(response).to match_response_schema('project')
@@ -75,7 +75,7 @@ RSpec.describe 'Projects', type: :request do
 
     context 'when success' do
       it 'deletes project', :dox do
-        expect { delete api_v1_project_path(id: project.id), headers: headers }.to change(Project, :count).by(-1)
+        expect { delete api_v1_project_path(id: project.id), headers: headers, as: :json }.to change(Project, :count).by(-1)
         expect(response).to have_http_status :ok
       end
     end
