@@ -1,5 +1,140 @@
 
 
+# Group Comments
+
+
+## Comments [/comments]
+
+
+### Create a comment [POST /api/v1/tasks/{task_id}/comments]
+
++ Parameters
+    + task_id: `1` (number, required)
+
++ Request create comment
+**POST**&nbsp;&nbsp;`/api/v1/tasks/1/comments`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+
+    + Body
+
+            {
+              "comment": {
+                "text": "63w9umog3s9",
+                "task_id": 1
+              }
+            }
+
++ Response 201
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "data": {
+                "id": "1",
+                "type": "comment",
+                "attributes": {
+                  "text": "63w9umog3s9",
+                  "attachment": {
+                    "url": null,
+                    "thumb": {
+                      "url": null
+                    }
+                  }
+                },
+                "relationships": {
+                  "task": {
+                    "data": {
+                      "id": "1",
+                      "type": "task"
+                    }
+                  }
+                }
+              }
+            }
+
++ Request not create comment
+**POST**&nbsp;&nbsp;`/api/v1/tasks/2/comments`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+
+    + Body
+
+            {
+              "text": ""
+            }
+
++ Response 422
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "task": [
+                "must exist"
+              ],
+              "text": [
+                "can't be blank",
+                "is too short (minimum is 10 characters)"
+              ]
+            }
+
+### Delete a comment [DELETE /api/v1/comments/{id}]
+
++ Parameters
+    + id: `2` (number, required)
+
++ Request destroy comment
+**DELETE**&nbsp;&nbsp;`/api/v1/comments/2`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+
++ Response 200
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+            {
+              "deleted": true
+            }
+
++ Request not destroy comment
+**DELETE**&nbsp;&nbsp;`/api/v1/comments/3`
+
+    + Headers
+
+            Accept: application/json
+            Content-Type: application/json
+
++ Response 422
+
+    + Headers
+
+            Content-Type: application/json; charset=utf-8
+
+    + Body
+
+
+
 # Group Login
 
 
@@ -20,7 +155,7 @@
     + Body
 
             {
-              "email": "ethankunze@ruecker.name",
+              "email": "simonne@swiftvonrueden.net",
               "password": "test_pswd"
             }
 
@@ -33,7 +168,7 @@
     + Body
 
             {
-              "csrf": "bYpFIVFYI3Zt4difs0AaQR4myKsdV1gC/bT5VNl85+kzC5I/XrT1V/0tQZvbcoC5+AdNcKHCLwLDLrbBm4ZL9Q=="
+              "csrf": "wfXOE/gGl40USD+ZIUBwwspPQ0O2W1skKV8MV1O3YgeLiCXMv7v4M0ehxa/yahHnendd78tygWHBLYRGL6/x2w=="
             }
 
 + Request when failed login user
@@ -126,7 +261,7 @@
 
             {
               "project": {
-                "name": "laudantium"
+                "name": "dicta"
               }
             }
 
@@ -140,16 +275,16 @@
 
             {
               "data": {
-                "id": "1",
+                "id": "5",
                 "type": "project",
                 "attributes": {
-                  "id": 1,
-                  "name": "laudantium"
+                  "id": 5,
+                  "name": "dicta"
                 },
                 "relationships": {
                   "user": {
                     "data": {
-                      "id": "4",
+                      "id": "8",
                       "type": "user"
                     }
                   }
@@ -190,10 +325,10 @@
 ### Update a project [PUT /api/v1/projects/{id}]
 
 + Parameters
-    + id: `2` (number, required)
+    + id: `6` (number, required)
 
 + Request updates project
-**PUT**&nbsp;&nbsp;`/api/v1/projects/2`
+**PUT**&nbsp;&nbsp;`/api/v1/projects/6`
 
     + Headers
 
@@ -204,7 +339,7 @@
 
             {
               "project": {
-                "name": "facere"
+                "name": "est"
               }
             }
 
@@ -218,16 +353,16 @@
 
             {
               "data": {
-                "id": "2",
+                "id": "6",
                 "type": "project",
                 "attributes": {
-                  "id": 2,
-                  "name": "facere"
+                  "id": 6,
+                  "name": "est"
                 },
                 "relationships": {
                   "user": {
                     "data": {
-                      "id": "6",
+                      "id": "10",
                       "type": "user"
                     }
                   }
@@ -236,7 +371,7 @@
             }
 
 + Request update project with wrong params
-**PUT**&nbsp;&nbsp;`/api/v1/projects/3`
+**PUT**&nbsp;&nbsp;`/api/v1/projects/7`
 
     + Headers
 
@@ -296,10 +431,10 @@
 ### Delete a project [DELETE /api/v1/projects/{id}]
 
 + Parameters
-    + id: `5` (number, required)
+    + id: `9` (number, required)
 
 + Request deletes project
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/5`
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/9`
 
     + Headers
 
@@ -319,7 +454,7 @@
             }
 
 + Request error deleting project
-**DELETE**&nbsp;&nbsp;`/api/v1/projects/6`
+**DELETE**&nbsp;&nbsp;`/api/v1/projects/10`
 
     + Headers
 
@@ -330,7 +465,7 @@
 
             {
               "project": {
-                "name": "quas"
+                "name": "quia"
               }
             }
 
@@ -378,11 +513,11 @@
     + Body
 
             {
-              "csrf": "ZDJmIz0r6rbMNCdTJZKL9E47Xvx5eFio2onNa1LHUIVU3mParijfDJOJYfqTzlC1KhGafZGObyKgL5IKHecIkA==",
-              "access": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Nzk3MTMzMTcsInVzZXJfaWQiOjExLCJ1aWQiOiI0MjhhZWI2ZS1lYTk3LTQ3ZjUtODY0ZS03YTc0ODQyNjAxZmIiLCJleHAiOjE1Nzk3MTMzMTd9.aXwe-wPtI5QN35mFNbLqE-0itpKt5Q0c0dku4tfkAoU",
-              "access_expires_at": "2020-01-22T19:15:17.000+02:00",
-              "refresh": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Nzk3MTMzMTcsInVpZCI6ImQ1ZGQzYTBhLWFhOGQtNDgxNC1hMGFjLTM1ZDEzYTk0YzFiMiIsImV4cCI6MTU4MDMxNDUxN30.GliXG39oAuuqQ8qXJAQuNxUaxqmyQ47bkIwPAQOvaq4",
-              "refresh_expires_at": "2020-01-29T18:15:17.000+02:00"
+              "csrf": "VoY6DbKZ7fRgE2hafjOfZjx+5vsOQYDe1WvXUL3y63BS9dVNG6eJsJ7TmBb1XDe1ZFUsDC+CotcWxMXC6IHt1Q==",
+              "access": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODAyMjc2NTQsInVzZXJfaWQiOjE1LCJ1aWQiOiIyNzExYTFkZi1mYTAyLTRmNjItOWVlYy1lMTM1NzlmM2FjOTAiLCJleHAiOjE1ODAyMjc2NTR9.YHfqTZh7saYzmNp1fA33l31aVHKHmKXPZkdt53h_Pg0",
+              "access_expires_at": "2020-01-28T18:07:34.000+02:00",
+              "refresh": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODAyMjc2NTQsInVpZCI6IjcyYzJmYmJmLTZiMmUtNGNmOS1iZjk4LTE0MTI1OGNhYWMxMiIsImV4cCI6MTU4MDgyODg1NH0.wgmNWzzLr87wd1JeUSNlRkiUKTw9s0IlKKOVx4WApZg",
+              "refresh_expires_at": "2020-02-04T17:07:34.000+02:00"
             }
 
 + Request invalid params
@@ -421,11 +556,13 @@
 ## Tasks [/tasks]
 
 
-### Create a task [POST /api/v1/tasks]
+### Create a task [POST /api/v1/projects/{project_id}/tasks]
 
++ Parameters
+    + project_id: `11` (number, required)
 
 + Request creates a new task
-**POST**&nbsp;&nbsp;`/api/v1/tasks`
+**POST**&nbsp;&nbsp;`/api/v1/projects/11/tasks`
 
     + Headers
 
@@ -436,10 +573,10 @@
 
             {
               "task": {
-                "name": "Task 1",
-                "deadline": "2023-01-22T16:15:17.470Z",
+                "name": "Task 5",
+                "deadline": "2025-01-28T15:07:34.193Z",
                 "completed": false,
-                "project_id": 7
+                "project_id": 11
               }
             }
 
@@ -453,18 +590,18 @@
 
             {
               "data": {
-                "id": "1",
+                "id": "5",
                 "type": "task",
                 "attributes": {
-                  "name": "Task 1",
-                  "deadline": "2023-01-22T16:15:17.470Z",
+                  "name": "Task 5",
+                  "deadline": "2025-01-28T15:07:34.193Z",
                   "position": 1,
                   "completed": false
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "7",
+                      "id": "11",
                       "type": "project"
                     }
                   }
@@ -473,7 +610,7 @@
             }
 
 + Request create task with wrong params
-**POST**&nbsp;&nbsp;`/api/v1/tasks`
+**POST**&nbsp;&nbsp;`/api/v1/projects/12/tasks`
 
     + Headers
 
@@ -506,10 +643,10 @@
 ### Update a task [PUT /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `2` (number, required)
+    + id: `6` (number, required)
 
 + Request updates task
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/2`
+**PUT**&nbsp;&nbsp;`/api/v1/tasks/6`
 
     + Headers
 
@@ -520,10 +657,10 @@
 
             {
               "task": {
-                "name": "Task 3",
-                "deadline": "2024-01-22T16:15:17.648Z",
+                "name": "Task 7",
+                "deadline": "2028-01-28T15:07:34.338Z",
                 "completed": false,
-                "project_id": 8
+                "project_id": 13
               }
             }
 
@@ -537,18 +674,18 @@
 
             {
               "data": {
-                "id": "2",
+                "id": "6",
                 "type": "task",
                 "attributes": {
-                  "name": "Task 3",
-                  "deadline": "2024-01-22T16:15:17.648Z",
+                  "name": "Task 7",
+                  "deadline": "2028-01-28T15:07:34.338Z",
                   "position": 1,
                   "completed": false
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "8",
+                      "id": "13",
                       "type": "project"
                     }
                   }
@@ -557,7 +694,7 @@
             }
 
 + Request update task with wrong params
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/3`
+**PUT**&nbsp;&nbsp;`/api/v1/tasks/7`
 
     + Headers
 
@@ -596,10 +733,10 @@
 
             {
               "task": {
-                "name": "Task 5",
-                "deadline": "2028-01-22T16:15:17.775Z",
+                "name": "Task 9",
+                "deadline": "2026-01-28T15:07:34.465Z",
                 "completed": false,
-                "project_id": 10
+                "project_id": 15
               }
             }
 
@@ -616,7 +753,7 @@
             }
 
 + Request moved to up
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/5`
+**PUT**&nbsp;&nbsp;`/api/v1/tasks/9`
 
     + Headers
 
@@ -627,10 +764,10 @@
 
             {
               "task": {
-                "name": "Task 9",
-                "deadline": "2030-01-22T16:15:17.883Z",
+                "name": "Task 13",
+                "deadline": "2029-01-28T15:07:34.569Z",
                 "completed": false,
-                "project_id": 11
+                "project_id": 16
               },
               "position": "up"
             }
@@ -645,18 +782,18 @@
 
             {
               "data": {
-                "id": "5",
+                "id": "9",
                 "type": "task",
                 "attributes": {
-                  "name": "Task 7",
-                  "deadline": "2023-01-22T16:15:17.849Z",
+                  "name": "Task 11",
+                  "deadline": "2028-01-28T15:07:34.538Z",
                   "position": 1,
                   "completed": false
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "11",
+                      "id": "16",
                       "type": "project"
                     }
                   }
@@ -665,7 +802,7 @@
             }
 
 + Request moved to down
-**PUT**&nbsp;&nbsp;`/api/v1/tasks/8`
+**PUT**&nbsp;&nbsp;`/api/v1/tasks/12`
 
     + Headers
 
@@ -676,10 +813,10 @@
 
             {
               "task": {
-                "name": "Task 13",
-                "deadline": "2028-01-22T16:15:18.032Z",
+                "name": "Task 17",
+                "deadline": "2030-01-28T15:07:34.727Z",
                 "completed": false,
-                "project_id": 12
+                "project_id": 17
               },
               "position": "down"
             }
@@ -694,18 +831,18 @@
 
             {
               "data": {
-                "id": "8",
+                "id": "12",
                 "type": "task",
                 "attributes": {
-                  "name": "Task 11",
-                  "deadline": "2028-01-22T16:15:18.000Z",
+                  "name": "Task 15",
+                  "deadline": "2025-01-28T15:07:34.694Z",
                   "position": 3,
                   "completed": false
                 },
                 "relationships": {
                   "project": {
                     "data": {
-                      "id": "12",
+                      "id": "17",
                       "type": "project"
                     }
                   }
@@ -716,10 +853,10 @@
 ### Delete a task [DELETE /api/v1/tasks/{id}]
 
 + Parameters
-    + id: `10` (number, required)
+    + id: `14` (number, required)
 
 + Request deletes task
-**DELETE**&nbsp;&nbsp;`/api/v1/tasks/10`
+**DELETE**&nbsp;&nbsp;`/api/v1/tasks/14`
 
     + Headers
 
@@ -730,10 +867,10 @@
 
             {
               "task": {
-                "name": "Task 15",
-                "deadline": "2026-01-22T16:15:18.148Z",
+                "name": "Task 19",
+                "deadline": "2026-01-28T15:07:34.833Z",
                 "completed": false,
-                "project_id": 13
+                "project_id": 18
               }
             }
 
@@ -750,7 +887,7 @@
             }
 
 + Request delete task with wrong params
-**DELETE**&nbsp;&nbsp;`/api/v1/tasks/11`
+**DELETE**&nbsp;&nbsp;`/api/v1/tasks/15`
 
     + Headers
 
@@ -761,10 +898,10 @@
 
             {
               "task": {
-                "name": "Task 17",
-                "deadline": "2022-01-22T16:15:18.231Z",
+                "name": "Task 21",
+                "deadline": "2023-01-28T15:07:34.910Z",
                 "completed": false,
-                "project_id": 14
+                "project_id": 19
               }
             }
 

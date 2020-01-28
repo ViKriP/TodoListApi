@@ -1,0 +1,24 @@
+
+{
+  "data": {
+    "id":"number",
+    "type":"object",
+    "attributes": {
+      "text":"string",
+      "attachment": {
+        "url": "null",
+        "thumb": {
+          "url": "null"
+        }
+      }
+    },
+    "relationships": {
+      "task": {
+        "data": {
+          "id":"number",
+          "type":"object"
+        }
+      }
+    }
+  }
+}

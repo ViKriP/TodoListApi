@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe 'V1::Tasks', type: :request do
   include Docs::V1::Tasks::Api
 
@@ -14,16 +16,17 @@ RSpec.describe 'V1::Tasks', type: :request do
       let(:params) { { task: attributes_for(:task).merge(project_id: project.id) } }
     
       it 'creates a new task', :dox do
-        expect { post api_v1_tasks_path, headers: headers, params: params, as: :json }.to change(Task, :count).by(1)
+        expect { post api_v1_project_tasks_path(project.id), headers: headers, params: params, as: :json }.to change(Task, :count).by(1)
         expect(response).to have_http_status :created
         expect(response).to match_response_schema('task')
       end
     end
 
     context 'when failed' do
+      let(:project) { create(:project, user: user) }
       let(:params) { { name: '' } }
 
-      before { post api_v1_tasks_path, params: params, headers: headers, as: :json }
+      before { post api_v1_project_tasks_path(project.id), params: params, headers: headers, as: :json }
 
       it 'create task with wrong params', :dox do
         expect(response).to have_http_status :unprocessable_entity
