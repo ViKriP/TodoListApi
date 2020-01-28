@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'V1::Comments', type: :request do
   include Docs::V1::Comments::Api
 

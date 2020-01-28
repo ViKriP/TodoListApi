@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'LoginController', type: :request do
   include Docs::V1::Login::Api
   let(:user) { create(:user) }

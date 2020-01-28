@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 RSpec.describe 'Projects', type: :request do
   include Docs::V1::Projects::Api
 
