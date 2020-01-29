@@ -1,9 +1,9 @@
 require 'spec_helper'
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-
 
 require 'dox'
 require 'rspec/rails'
@@ -12,7 +12,6 @@ require 'factory_bot_rails'
 require 'shoulda-matchers'
 require "pundit/rspec"
 require 'faker'
-
 
 Dir[Rails.root.join('spec/docs/**/*.rb')].each { |f| require f }
 
