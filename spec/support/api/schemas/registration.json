@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "csrf": {
+      "type": "string"
+    },
+    "access": {
+      "type": "string"
+    },
+    "access_expires_at": {
+      "type": "string"
+    },
+    "refresh": {
+      "type": "string"
+    },
+    "refresh_expires_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "csrf"
+  ]
+}

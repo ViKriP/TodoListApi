@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "csrf": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "csrf"
+  ]
+}

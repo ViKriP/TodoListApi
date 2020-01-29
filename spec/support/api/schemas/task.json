@@ -1,0 +1,20 @@
+{
+  "data": {
+    "id": "number",
+    "type": "object",
+    "attributes": {
+      "name": "string",
+      "deadline": "string",
+      "position": "number",
+      "completed": "boolean"
+    },
+    "relationships": {
+      "project": {
+        "data": {
+          "id": "number",
+          "type": "object"
+        }
+      }
+    }
+  }
+}

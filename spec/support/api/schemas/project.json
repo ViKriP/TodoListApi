@@ -1,0 +1,18 @@
+{
+  "data": {
+    "id": "number",
+    "type": "object",
+    "attributes": {
+      "id": "number",
+      "name":"string"
+    },
+    "relationships": {
+      "user": {
+        "data": {
+          "id": "number",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
